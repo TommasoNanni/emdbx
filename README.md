@@ -24,8 +24,11 @@ code
 │           └── SMPLX_NEUTRAL.npz 
 ├── emdb
 ├── EMDBX
+├── AiOS
 └── SMPLer-X
 ```
-where `emdb` is the original EMDB repo that can be cloned from [GitHub](https://github.com/eth-ait/emdb) and `SMPLer-X` is the original [SMPLer-X repo](https://github.com/SMPLCap/SMPLer-X).
+where `emdb` is the original EMDB repo that can be cloned from [GitHub](https://github.com/eth-ait/emdb), `SMPLer-X` is the original [SMPLer-X repo](https://github.com/SMPLCap/SMPLer-X), and `AiOS` is the original [AiOS repo](https://github.com/SMPLCap/AiOS).
 
 Make sure to add a `__init__.py` file in the `emdb` folder.
+
+In order to run each of the models, please follow the instructions in the respective `{model_name}_run.md` files. This will require some modifications to the original repos, which are described in the respective files, but for each of them you will need to have the emdb repo, the EMDB dataset, and the smplx models in the same workspace as described above.
