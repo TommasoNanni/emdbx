@@ -23,6 +23,9 @@ code
 │           ├── SMPLX_MALE.npz
 │           └── SMPLX_NEUTRAL.npz 
 ├── emdb
-└── EMDBX
+├── EMDBX
+└── SMPLer-X
 ```
-where `emdb` is the original EMDB repo that can be cloned from [GitHub](https://github.com/eth-ait/emdb).
+where `emdb` is the original EMDB repo that can be cloned from [GitHub](https://github.com/eth-ait/emdb) and `SMPLer-X` is the original [SMPLer-X repo](https://github.com/SMPLCap/SMPLer-X).
+
+Make sure to add a `__init__.py` file in the `emdb` folder.
