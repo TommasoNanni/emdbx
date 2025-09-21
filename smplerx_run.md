@@ -58,6 +58,28 @@ Additional modifications have to be done:
     vis_img = render_mesh(vis_img, mesh, smpl_x.face, {'focal': focal, 'princpt': princpt}, 
                                   mesh_as_vertices=args.show_verts)
     ```
+- Make sure to change the `for` loop in the function `prepare_dirs` in `path_to_your_root\SMPLer-X\main\config.py` to:
+    ```python
+    for file in copy_files:
+            src = os.path.join(self.root_dir, file)
+            dst = os.path.join(self.code_dir, os.path.basename(file))
+
+            if os.path.isdir(src):
+                if os.path.exists(dst):
+                    shutil.rmtree(dst)
+                shutil.copytree(src, dst)
+            else:
+                shutil.copy(src, dst)
+    ```
+- Comment the line `import pyrender` (line 9) in `path_to_your_root\SMPLer-X\common\utils\vis.py` since it is not needed and it creates some issues on Windows machines. 
+- Remove the import of `render_mesh` in `path_to_your_root\SMPLer-X\inference.py` (line 57) since we are not using it anymore and might create issues on windows machines.
+- In `path_to_your_root\SMPLer-X\main\transformer_utils\mmpose\models\builder.py`, change the lines 6-7 to:
+    ```python
+    MODELS = Registry(
+        'models', build_func=build_model_from_cfg, parent=MMCV_MODELS, scope = "mmpose")
+
+    ```
+
 
 ## Visualizing a video
 In order to visualize results for a specific video, navigate to `EMDBX\scripts\smplerx.py` and modify the following variables according to the required format and the pretrained SMPLer-X model you want to use:
